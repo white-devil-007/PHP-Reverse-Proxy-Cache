@@ -17,7 +17,7 @@
 
     $options = [
         CURLOPT_RETURNTRANSFER => true,     // return web page
-        CURLOPT_HEADER         => true,     // return headers
+#        CURLOPT_HEADER         => true,     // return headers
         CURLOPT_FOLLOWLOCATION => true,     // follow redirects
         CURLOPT_ENCODING       => isset($data['HTTP_REFERER']) ? $data['HTTP_REFERER'] : "",       // handle all encodings
         CURLOPT_AUTOREFERER    => true,     // set referer on redirect
