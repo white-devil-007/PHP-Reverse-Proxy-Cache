@@ -1,5 +1,5 @@
-if (!isset($_GET['Cache'])) {
-    $url = $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$url = $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+if (!isset($_GET['Cache']) && (strpos($actual_link, 'wp-cron') !== true)) {
     if(isset($_GET)) {
         $exploded_url = explode( "?", $url );
             
@@ -8,7 +8,7 @@ if (!isset($_GET['Cache'])) {
             if($a = 'Cache') {
                 $count_url++;
             }
-            if($count_url == 3) {
+            if($count_url == 2) {
                 die();
             }
         }
